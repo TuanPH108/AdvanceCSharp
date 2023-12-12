@@ -15,3 +15,4 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\A
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\refint\AdvanceCSharp.service.dll
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\ref\AdvanceCSharp.service.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.sourcelink.json

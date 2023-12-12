@@ -11,8 +11,6 @@
     <Folder Include="Carts\Request\" />
     <Folder Include="Orders\Request\" />
     <Folder Include="Orders\Response\" />
-    <Folder Include="Products\Request\" />
-    <Folder Include="Products\Response\" />
   </ItemGroup>
 
   <ItemGroup>

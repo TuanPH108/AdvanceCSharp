@@ -13,3 +13,4 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.dto\bin\Debug\net8.0\Advan
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.dto\bin\Debug\net8.0\AdvanceCSharp.database.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.dto\obj\Debug\net8.0\AdvanceCSharp.dto.csproj.AssemblyReference.cache
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.dto\obj\Debug\net8.0\AdvanceCSharp.dto.csproj.CopyComplete
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.dto\obj\Debug\net8.0\AdvanceCSharp.dto.sourcelink.json

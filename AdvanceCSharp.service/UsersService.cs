@@ -25,6 +25,7 @@ namespace AdvanceCSharp.service
         public async Task<GetListUserResponse> GetList(GetListUserRequest request)
         {
             GetListUserResponse response = new GetListUserResponse();
+
             using (AppDbContext dbContext = new AppDbContext())
             {
                 List<Users> ListUser = dbContext.Users.Where(user => user.User_Email == request.User_Email).ToList();
@@ -44,38 +45,30 @@ namespace AdvanceCSharp.service
 
         public async Task<NewUserResponse> CreateUser(NewUserRequest request)
         {
-            NewUserResponse response = new NewUserResponse()
-            {
-                User_ID = request.User_ID,
-                User_Name = request.User_Name,
-                User_Contact = request.User_Contact,
-                User_Email = request.User_Email
-            };
-            Users tmpUser = new Users()
-            { 
-                User_ID = request.User_ID,
-                User_Name = request.User_Name,
-                User_Contact = request.User_Contact,
-                User_Email = request.User_Email
-            };
-
+            NewUserResponse response = new NewUserResponse();
             using (AppDbContext dbContext = new AppDbContext())
             {
-                _ = dbContext.Users.Add(tmpUser);
+                _ = dbContext.Users.Add( new Users()
+                {
+                    User_ID = request.User_ID,
+                    User_Name = request.User_Name,
+                    User_Contact = request.User_Contact,
+                    User_Email = request.User_Email
+                });
                 _ = dbContext.SaveChanges();
+
+                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                response.User_ID = GetUser.User_ID;
+                response.User_Name = GetUser.User_Name;
+                response.User_Email = GetUser.User_Email;
+                response.User_Contact = GetUser.User_Contact;
             }
             return response;
         }
 
         public async Task<UpdateUserResponse> UpdateUser (UpdateUserRequest request)
         {
-            UpdateUserResponse response = new UpdateUserResponse()
-            {
-                User_ID = request.User_ID,
-                User_Name = request.User_Name,
-                User_Contact = request.User_Contact,
-                User_Email = request.User_Email
-            };
+            UpdateUserResponse response = new UpdateUserResponse();
             Users tmpUser = new Users()
             {
                 User_ID = request.User_ID,
@@ -88,6 +81,12 @@ namespace AdvanceCSharp.service
             {
                 _ = dbContext.Users.Update(tmpUser);
                 _ = dbContext.SaveChanges();
+
+                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                response.User_ID = GetUser.User_ID;
+                response.User_Name = GetUser.User_Name;
+                response.User_Email = GetUser.User_Email;
+                response.User_Contact = GetUser.User_Contact;
             }
             return response;
         }
@@ -99,6 +98,12 @@ namespace AdvanceCSharp.service
             {
                 _ = dbContext.Users.Remove(dbContext.Users.Find(request.User_ID));
                 dbContext.SaveChanges();
+
+                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                response.User_ID = GetUser.User_ID;
+                response.User_Name = GetUser.User_Name;
+                response.User_Email = GetUser.User_Email;
+                response.User_Contact = GetUser.User_Contact;
             }
             return response;
         }

@@ -3,7 +3,7 @@ using AdvanceCSharp.dto.Users.Response;
 using AdvanceCSharp.service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AdvanceCSharp.API.Controllers.UsersController
+namespace AdvanceCSharp.API.Controllers
 {
     [Route("api/user")]
     [ApiController]
@@ -17,7 +17,7 @@ namespace AdvanceCSharp.API.Controllers.UsersController
 
         [Route("get-profile")]
         [HttpGet]
-        public async Task<IActionResult> GetUserById([FromQuery]GetUserRequest request)
+        public async Task<IActionResult> GetUserById([FromQuery] GetUserRequest request)
         {
             try
             {
@@ -31,13 +31,13 @@ namespace AdvanceCSharp.API.Controllers.UsersController
 
         [Route("get-list-profile")]
         [HttpGet]
-        public async Task<IActionResult> GetListUser([FromQuery]GetListUserRequest request)
+        public async Task<IActionResult> GetListUser([FromQuery] GetListUserRequest request)
         {
             try
             {
                 return new JsonResult(await _UserService.GetList(request));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
@@ -65,9 +65,9 @@ namespace AdvanceCSharp.API.Controllers.UsersController
             {
                 return new JsonResult(await _UserService.UpdateUser(request));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return StatusCode(500,ex.Message);
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -79,7 +79,7 @@ namespace AdvanceCSharp.API.Controllers.UsersController
             {
                 return new JsonResult(await _UserService.DeleteUser(request));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }

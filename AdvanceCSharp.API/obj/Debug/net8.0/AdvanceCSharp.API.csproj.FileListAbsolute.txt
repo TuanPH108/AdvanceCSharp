@@ -74,3 +74,4 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\refin
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.genruntimeconfig.cache
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\ref\AdvanceCSharp.API.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.sourcelink.json
