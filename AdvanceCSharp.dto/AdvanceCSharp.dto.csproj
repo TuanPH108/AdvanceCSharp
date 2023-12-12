@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Carts\Response\" />
+    <Folder Include="Carts\Request\" />
+    <Folder Include="Orders\Request\" />
+    <Folder Include="Orders\Response\" />
+    <Folder Include="Products\Request\" />
+    <Folder Include="Products\Response\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdvanceCSharp.database\AdvanceCSharp.database.csproj" />
+  </ItemGroup>
+
+</Project>

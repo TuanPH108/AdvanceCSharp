@@ -1,0 +1,17 @@
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.service.deps.json
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.service.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.service.pdb
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.database.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.dto.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.database.pdb
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\bin\Debug\net8.0\AdvanceCSharp.dto.pdb
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.csproj.AssemblyReference.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.AssemblyInfoInputs.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.AssemblyInfo.cs
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.csproj.CoreCompileInputs.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.csproj.CopyComplete
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\refint\AdvanceCSharp.service.dll
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.pdb
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\ref\AdvanceCSharp.service.dll
