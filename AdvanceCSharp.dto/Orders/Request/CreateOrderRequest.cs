@@ -1,6 +1,6 @@
-﻿namespace AdvanceCSharp.dto.Orders.Response
+﻿namespace AdvanceCSharp.dto.Orders.Request
 {
-    public class GetOrderResponse
+    public class CreateOrderRequest
     {
         public Guid Order_ID { get; set; }
         public Guid User_ID { get; set; }

@@ -2,6 +2,6 @@
 {
     public class GetListProductResponse
     {
-        public List<GetProductResponse> ListProduct = new List<GetProductResponse>();
+        public List<GetProductResponse> ListProduct { get; set; } = new List<GetProductResponse>();
     }
 }

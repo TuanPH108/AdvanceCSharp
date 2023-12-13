@@ -9,8 +9,6 @@
   <ItemGroup>
     <Folder Include="Carts\Response\" />
     <Folder Include="Carts\Request\" />
-    <Folder Include="Orders\Request\" />
-    <Folder Include="Orders\Response\" />
   </ItemGroup>
 
   <ItemGroup>

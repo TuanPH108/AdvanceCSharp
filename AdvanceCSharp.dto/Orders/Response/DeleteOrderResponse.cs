@@ -1,6 +1,12 @@
-﻿namespace AdvanceCSharp.dto.Orders.Response
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AdvanceCSharp.dto.Orders.Response
 {
-    public class GetOrderResponse
+    public class DeleteOrderResponse
     {
         public Guid Order_ID { get; set; }
         public Guid User_ID { get; set; }

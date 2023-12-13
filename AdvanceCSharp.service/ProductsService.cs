@@ -37,8 +37,6 @@ namespace AdvanceCSharp.service
                         Product_Type = product.Product_Type
                     });
                 }
-
-               var p = response.ListProduct;
             }    
             return response;
         }
