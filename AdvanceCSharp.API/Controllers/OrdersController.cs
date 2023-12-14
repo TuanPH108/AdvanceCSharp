@@ -24,7 +24,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetOrderResponse response = await OrdersService.GetOrder(request);
+                GetOrderResponse response = await _OrderService.GetOrder(request);
                 return new JsonResult(response);
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetListOrderResponse response = await OrdersService.GetListOrder(request);
+                GetListOrderResponse response = await _OrderService.GetListOrder(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -58,7 +58,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                CreateOrderResponse response = await OrdersService.CreateOrder(request);
+                CreateOrderResponse response = await _OrderService.CreateOrder(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -75,7 +75,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                DeleteOrderResponse response = await OrdersService.DeleteOrder(request);
+                DeleteOrderResponse response = await _OrderService.DeleteOrder(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -92,7 +92,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                UpdateOrderResponse response = await OrdersService.UpdateOrder(request);
+                UpdateOrderResponse response = await _OrderService.UpdateOrder(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
