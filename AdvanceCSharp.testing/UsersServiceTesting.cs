@@ -7,7 +7,7 @@ namespace AdvanceCSharp.testing
     [TestClass]
     public class UsersServiceTesting
     {
-        private UsersService _UserService;
+        private readonly UsersService _UserService;
 
         public UsersServiceTesting() 
         {
@@ -16,58 +16,80 @@ namespace AdvanceCSharp.testing
         /// <summary>
         /// Test Get User
         /// </summary>
-        /// <returns></returns>
         [TestMethod]
         public async Task GetUserByIdTesting()
         {
-            GetUserRequest request = new GetUserRequest()
+            GetUserRequest request = new()
             { 
-                User_ID = Guid.Parse("A8F53B2E-CD36-4D09-1551-08DBF88F51D9"),
+                User_ID = Guid.Parse("D76B6A97-4B54-4C5E-1550-08DBF88F51D9"),
             };
 
             GetUserResponse response = await _UserService.GetById(request);
-
+            //Check response is not null
             Assert.IsNotNull(response);
         }
-
+        /// <summary>
+        /// Test Get List user
+        /// </summary>
         [TestMethod]
         public async Task GetListUserTesting()
         {
-            GetListUserRequest request = new GetListUserRequest()
-            { 
+            GetListUserRequest getListUserRequest = new()
+            {
                 User_Email = "ph.hoangtuan18@gmail.com"
             };
+            GetListUserRequest request = getListUserRequest;
             GetListUserResponse response = await _UserService.GetList(request);
+            //Check List Response equal count of List User
             Assert.IsTrue(response.ListUser.Count == 237);
         }
-
+        /// <summary>
+        /// Test Create User
+        /// </summary>
         [TestMethod]
         public async Task CreateUserTesting()
         {
-            NewUserRequest request = new NewUserRequest()
+            NewUserRequest request = new()
             {
-                User_ID = Guid.Parse("821464b5-2bee-4110-a8b3-8231835a7ff4"),
+                User_ID = Guid.NewGuid(),
                 User_Name = "Test Name",
                 User_Contact = "Test Contact",
                 User_Email = "Test Email"
             };
             NewUserResponse response = await _UserService.CreateUser(request);
+            //Check response is not null
             Assert.IsNotNull(response);
         }
-
-       /* [TestMethod]
+        /// <summary>
+        /// Test Update User
+        /// </summary>
+       [TestMethod]
         public async Task UpdateUserTesting()
         {
-            UpdateUserRequest request = new UpdateUserRequest()
+            UpdateUserRequest request = new()
             {
-                User_ID = Guid.NewGuid(),
+                User_ID = Guid.Parse("D76B6A97-4B54-4C5E-1550-08DBF88F51D9"),
                 User_Name = "",
                 User_Contact = "",
                 User_Email = ""
             };
             UpdateUserResponse response = await _UserService.UpdateUser(request);
-
+            //Check response is not null
             Assert.IsNotNull(response);
-        }*/
+        }
+        /// <summary>
+        /// Test Delete user
+        /// </summary>
+        [TestMethod]
+        public async Task DeleteUserTesting()
+        {
+            DeleteUserRequest request = new()
+            {
+                User_ID = Guid.Parse("5B856F6A-D5CF-432D-1553-08DBF88F51D9")
+            };
+            DeleteUserResponse response = await _UserService.DeleteUser(request);
+            //Check response is not null
+            Assert.IsNotNull(response);
+        }
     }
 }

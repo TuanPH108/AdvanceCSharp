@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdvanceCSharp.dto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03e29216ed809389e01b4fc9153077373ce10722")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdvanceCSharp.dto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdvanceCSharp.dto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

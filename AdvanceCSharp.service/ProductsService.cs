@@ -7,7 +7,7 @@ namespace AdvanceCSharp.service
 {
     public class ProductsService
     {
-        public static Task<GetProductResponse> GetProduct(GetProductRequest request)
+        public Task<GetProductResponse> GetProduct(GetProductRequest request)
         {
             GetProductResponse response = new();
             using (AppDbContext dbContext = new())
@@ -21,7 +21,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<GetListProductResponse> GetListProduct(GetListProductRequest request)
+        public Task<GetListProductResponse> GetListProduct(GetListProductRequest request)
         {
             GetListProductResponse response = new();
             using (AppDbContext dbContext = new())
@@ -41,7 +41,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
+        public Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
         {
             UpdateProductResponse response = new();
             using (AppDbContext dbContext = new())
@@ -65,7 +65,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
+        public Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
         {
             CreateProductResponse response = new();
             using (AppDbContext dbContext = new())
@@ -89,7 +89,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request)
+        public Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request)
         {
             DeleteProductResponse response = new();
             using (AppDbContext dbContext = new())

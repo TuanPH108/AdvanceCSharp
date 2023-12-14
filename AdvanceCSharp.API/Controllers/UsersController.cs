@@ -1,5 +1,4 @@
 ﻿using AdvanceCSharp.dto.Users.Request;
-using AdvanceCSharp.dto.Users.Response;
 using AdvanceCSharp.service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,21 +13,25 @@ namespace AdvanceCSharp.API.Controllers
         {
             _UserService = new UsersService();
         }
-
+        /// <summary>
+        /// HTTP GET
+        /// </summary>
         [Route("get-profile")]
         [HttpGet]
         public async Task<IActionResult> GetUserById([FromQuery] GetUserRequest request)
         {
             try
             {
-                return new JsonResult(await UsersService.GetById(request));
+                return new JsonResult(await _UserService.GetById(request));
             }
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP GET (List)
+        /// </summary>
         [Route("get-list-profile")]
         [HttpGet]
         public async Task<IActionResult> GetListUser([FromQuery] GetListUserRequest request)
@@ -42,7 +45,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP POST
+        /// </summary>
         [Route("post-new-user")]
         [HttpPost]
         public async Task<IActionResult> PostNewUser([FromQuery] NewUserRequest request)
@@ -56,7 +61,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP PUT
+        /// </summary>
         [Route("update-user-profile")]
         [HttpPut]
         public async Task<IActionResult> UpdateUser([FromQuery] UpdateUserRequest request)
@@ -70,7 +77,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP DELETE
+        /// </summary>
         [Route("delete-user-profile")]
         [HttpDelete]
         public async Task<IActionResult> DeleteUser([FromQuery] DeleteUserRequest request)

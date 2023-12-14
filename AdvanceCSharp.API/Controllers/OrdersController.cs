@@ -15,7 +15,9 @@ namespace AdvanceCSharp.API.Controllers
         {
             _OrderService = new OrdersService();
         }
-
+        /// <summary>
+        /// HTTP GET
+        /// </summary>
         [HttpGet]
         [Route("get-order")]
         public async Task<IActionResult> GetOrder([FromQuery] GetOrderRequest request)
@@ -30,6 +32,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        /// <summary>
+        /// HTTP GET (List)
+        /// </summary>
         [HttpGet]
         [Route("get-list-order")]
         public async Task<IActionResult> GetListOrder([FromQuery] GetListOrderRequest request)
@@ -44,7 +49,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP POST
+        /// </summary>
         [HttpPost]
         [Route("create-order")]
         public async Task<IActionResult> CreateOrder ([FromQuery] CreateOrderRequest request)
@@ -59,7 +66,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP DELETE
+        /// </summary>
         [HttpPut]
         [Route("delete-order")]
         public async Task<IActionResult> DeleteOrder([FromQuery]DeleteOrderRequest request)
@@ -74,7 +83,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP PUT
+        /// </summary>
         [HttpDelete]
         [Route("update-order")]
         public async Task<IActionResult> UpdateOrder([FromQuery] UpdateOrderRequest request)

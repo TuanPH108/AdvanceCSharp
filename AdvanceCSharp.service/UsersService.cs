@@ -7,8 +7,7 @@ namespace AdvanceCSharp.service
 {
     public class UsersService
     {
-
-        public static Task<GetUserResponse> GetById(GetUserRequest request)
+        public Task<GetUserResponse> GetById(GetUserRequest request)
         {
             GetUserResponse response = new();
             using (AppDbContext dbContext = new())
@@ -25,7 +24,6 @@ namespace AdvanceCSharp.service
         public Task<GetListUserResponse> GetList(GetListUserRequest request)
         {
             GetListUserResponse response = new();
-
             using (AppDbContext dbContext = new())
             {
                 List<Users> ListUser = [.. dbContext.Users.Where(user => user.User_Email == request.User_Email)];
@@ -69,17 +67,13 @@ namespace AdvanceCSharp.service
         public Task<UpdateUserResponse> UpdateUser (UpdateUserRequest request)
         {
             UpdateUserResponse response = new();
-            Users tmpUser = new
-                
-                
-                ()
+            Users tmpUser = new()
             {
                 User_ID = request.User_ID,
                 User_Name = request.User_Name,
                 User_Contact = request.User_Contact,
                 User_Email = request.User_Email
             };
-
             using (AppDbContext dbContext = new())
             {
                 _ = dbContext.Users.Update(tmpUser);
@@ -99,7 +93,6 @@ namespace AdvanceCSharp.service
             DeleteUserResponse response = new();
             using (AppDbContext dbContext = new())
             {
-
                 Users? FindedUser = dbContext.Users.Find(request.User_ID);
                 _ = dbContext.Users.Remove(FindedUser);
                 _ = dbContext.SaveChanges();

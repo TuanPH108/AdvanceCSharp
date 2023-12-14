@@ -21,6 +21,7 @@ namespace AdvanceCSharp.service
             }
             return Task.FromResult(response);
         }
+
         public static Task<GetListOrderResponse> GetListOrder(GetListOrderRequest request)
         {
             GetListOrderResponse response = new();
@@ -41,6 +42,7 @@ namespace AdvanceCSharp.service
             }
             return Task.FromResult(response);
         }
+
         public static Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
         {
             CreateOrderResponse response = new();
@@ -109,7 +111,6 @@ namespace AdvanceCSharp.service
                 _ = dbContext.Orders.Remove(DeleteOrder);
                 dbContext.SaveChanges();
             }
-
             return Task.FromResult(response);
         }
     }

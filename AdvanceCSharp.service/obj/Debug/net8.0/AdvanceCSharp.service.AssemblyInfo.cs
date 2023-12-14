@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdvanceCSharp.service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03e29216ed809389e01b4fc9153077373ce10722")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c74931ea3c89c0824e14cb4054b4050941beb28")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdvanceCSharp.service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdvanceCSharp.service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

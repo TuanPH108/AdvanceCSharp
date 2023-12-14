@@ -21,6 +21,7 @@ namespace AdvanceCSharp.service
             }
             return Task.FromResult(response);
         }
+
         public static Task<GetListCartResponse> GetListCart(GetListCartRequest request)
         {
             GetListCartResponse response = new();
@@ -39,6 +40,7 @@ namespace AdvanceCSharp.service
             }
             return Task.FromResult(response);
         }
+
         public static Task<CreateCartResponse> CreateCart(CreateCartRequest request)
         {
             CreateCartResponse response = new();
@@ -110,7 +112,5 @@ namespace AdvanceCSharp.service
             };
             return Task.FromResult(response);
         }
-
-
     }
 }

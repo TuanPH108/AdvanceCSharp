@@ -1,7 +1,6 @@
 ﻿using AdvanceCSharp.dto.Carts.Request;
 using AdvanceCSharp.dto.Carts.Response;
 using AdvanceCSharp.service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdvanceCSharp.API.Controllers
@@ -10,15 +9,15 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class CartsController : ControllerBase
     {
-#pragma warning disable IDE0052 // Remove unread private members
         private readonly CartsService _CartService;
-#pragma warning restore IDE0052 // Remove unread private members
 
         public CartsController()
         {
             _CartService = new CartsService();
         }
-
+        /// <summary>
+        /// HTTP GET
+        /// </summary>
         [HttpGet]
         [Route("get-cart")]
         public async Task<IActionResult> GetCart([FromQuery] GetCartRequest request)
@@ -33,7 +32,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP GET (List)
+        /// </summary>
         [HttpGet]
         [Route("get-list-cart")]
         public async Task<IActionResult> GetListCart([FromQuery] GetListCartRequest request)
@@ -48,7 +49,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP POST
+        /// </summary>
         [HttpPost]
         [Route("create-cart")]
         public async Task<IActionResult> CreateCart([FromQuery] CreateCartRequest request)
@@ -63,7 +66,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500,ex.Message);
             }
         }
-
+        /// <summary>
+        /// HTTP PUT
+        /// </summary>
         [HttpPut]
         [Route("update-cart")]
         public async Task<IActionResult> UpdateCart([FromQuery] UpdateCartRequest request)
@@ -78,6 +83,9 @@ namespace AdvanceCSharp.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        /// <summary>
+        /// HTTP DELETE
+        /// </summary>
         [HttpDelete]
         [Route("delete-cart")]
         public async Task<IActionResult> DeleteCart([FromQuery] DeleteCartRequest request)
