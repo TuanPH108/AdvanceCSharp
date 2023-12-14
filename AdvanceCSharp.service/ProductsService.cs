@@ -7,26 +7,26 @@ namespace AdvanceCSharp.service
 {
     public class ProductsService
     {
-        public async Task<GetProductResponse> GetProduct(GetProductRequest request)
+        public static Task<GetProductResponse> GetProduct(GetProductRequest request)
         {
-            GetProductResponse response = new GetProductResponse();
-            using(AppDbContext dbContext = new AppDbContext()) 
+            GetProductResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                Products GetProduct = dbContext.Products.Where(product => product.Product_ID == request.Product_ID).FirstOrDefault();
+                Products? GetProduct = dbContext.Products.Where(product => product.Product_ID == request.Product_ID).FirstOrDefault();
                 response.Product_ID = GetProduct.Product_ID;
                 response.Product_Name = GetProduct.Product_Name;
                 response.Product_Price = GetProduct.Product_Price;
                 response.Product_Type = GetProduct.Product_Type;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<GetListProductResponse> GetListProduct(GetListProductRequest request)
+        public static Task<GetListProductResponse> GetListProduct(GetListProductRequest request)
         {
-            GetListProductResponse response = new GetListProductResponse();
-            using (AppDbContext dbContext = new AppDbContext())
+            GetListProductResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                List<Products> GetListProduct = dbContext.Products.Where(product => product.Product_Name == request.Product_Name).ToList();
+                List<Products> GetListProduct = [.. dbContext.Products.Where(product => product.Product_Name == request.Product_Name)];
                 foreach (Products product in GetListProduct)
                 {
                     response.ListProduct.Add(new GetProductResponse()
@@ -38,15 +38,15 @@ namespace AdvanceCSharp.service
                     });
                 }
             }    
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
+        public static Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
         {
-            UpdateProductResponse response = new UpdateProductResponse();
-            using(AppDbContext dbContext = new AppDbContext()) 
+            UpdateProductResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                Products UpdateProduct = new Products()
+                Products UpdateProduct = new()
                 {
                     Product_ID = request.Product_ID,
                     Product_Name = request.Product_Name,
@@ -56,21 +56,21 @@ namespace AdvanceCSharp.service
                 _ = dbContext.Products.Update(UpdateProduct);
                 _ = dbContext.SaveChanges();
 
-                Products GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
+                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
                 response.Product_ID = GetProduct.Product_ID;
                 response.Product_Name = GetProduct.Product_Name;
                 response.Product_Type = GetProduct.Product_Type;
                 response.Product_Price = GetProduct.Product_Price;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
+        public static Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
         {
-            CreateProductResponse response = new CreateProductResponse();
-            using (AppDbContext dbContext = new AppDbContext()) 
+            CreateProductResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                Products tmpProduct = new Products()
+                Products tmpProduct = new()
                 {
                     Product_ID = request.Product_ID,
                     Product_Name = request.Product_Name,
@@ -80,30 +80,31 @@ namespace AdvanceCSharp.service
                 _= dbContext.Products.Add(tmpProduct);
                 _ = dbContext.SaveChanges();
 
-                Products GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
+                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
                 response.Product_ID = GetProduct.Product_ID;
                 response.Product_Name = GetProduct.Product_Name;
                 response.Product_Type = GetProduct.Product_Type;
                 response.Product_Price = GetProduct.Product_Price;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<DeleteProductResponse> DeleteProduct (DeleteProductRequest request)
+        public static Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request)
         {
-            DeleteProductResponse response = new DeleteProductResponse();
-            using (AppDbContext dbContext = new AppDbContext())
+            DeleteProductResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                _ = dbContext.Products.Remove(dbContext.Products.Find(request.Product_ID));
+                Products? FindedProduct = dbContext.Products.Find(request.Product_ID);
+                _ = dbContext.Products.Remove(FindedProduct);
                 _ = dbContext.SaveChanges();
 
-                Products GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
-                response.Product_ID = GetProduct.Product_ID;
-                response.Product_Name = GetProduct.Product_Name;
-                response.Product_Type = GetProduct.Product_Type;
-                response.Product_Price = GetProduct.Product_Price;
+                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
+                response.Product_ID = Guid.Empty;
+                response.Product_Name = "";
+                response.Product_Type = "";
+                response.Product_Price = 0;
             }
-            return response;
+            return Task.FromResult(response);
         }
     }
 }

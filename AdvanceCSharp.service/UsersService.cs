@@ -8,30 +8,30 @@ namespace AdvanceCSharp.service
     public class UsersService
     {
 
-        public async Task<GetUserResponse> GetById(GetUserRequest request)
+        public static Task<GetUserResponse> GetById(GetUserRequest request)
         {
-            GetUserResponse response = new GetUserResponse();
-            using (AppDbContext dbContext = new AppDbContext())
+            GetUserResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                Users? GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
                 response.User_ID = GetUser.User_ID;
                 response.User_Name = GetUser.User_Name;
                 response.User_Email = GetUser.User_Email;
                 response.User_Contact = GetUser.User_Contact;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<GetListUserResponse> GetList(GetListUserRequest request)
+        public Task<GetListUserResponse> GetList(GetListUserRequest request)
         {
-            GetListUserResponse response = new GetListUserResponse();
+            GetListUserResponse response = new();
 
-            using (AppDbContext dbContext = new AppDbContext())
+            using (AppDbContext dbContext = new())
             {
-                List<Users> ListUser = dbContext.Users.Where(user => user.User_Email == request.User_Email).ToList();
+                List<Users> ListUser = [.. dbContext.Users.Where(user => user.User_Email == request.User_Email)];
                 foreach (Users user in ListUser)
                 {
-                    response.ListUser.Add(new GetUserResponse() 
+                    response.ListUser.Add(item: new GetUserResponse()
                     {
                         User_ID = user.User_ID,
                         User_Name = user.User_Name,
@@ -40,15 +40,15 @@ namespace AdvanceCSharp.service
                     });
                 }
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<NewUserResponse> CreateUser(NewUserRequest request)
+        public Task<NewUserResponse> CreateUser(NewUserRequest request)
         {
-            NewUserResponse response = new NewUserResponse();
-            using (AppDbContext dbContext = new AppDbContext())
+            NewUserResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                _ = dbContext.Users.Add( new Users()
+                _ = dbContext.Users.Add(new Users()
                 {
                     User_ID = request.User_ID,
                     User_Name = request.User_Name,
@@ -57,19 +57,22 @@ namespace AdvanceCSharp.service
                 });
                 _ = dbContext.SaveChanges();
 
-                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                Users? GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
                 response.User_ID = GetUser.User_ID;
                 response.User_Name = GetUser.User_Name;
                 response.User_Email = GetUser.User_Email;
                 response.User_Contact = GetUser.User_Contact;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<UpdateUserResponse> UpdateUser (UpdateUserRequest request)
+        public Task<UpdateUserResponse> UpdateUser (UpdateUserRequest request)
         {
-            UpdateUserResponse response = new UpdateUserResponse();
-            Users tmpUser = new Users()
+            UpdateUserResponse response = new();
+            Users tmpUser = new
+                
+                
+                ()
             {
                 User_ID = request.User_ID,
                 User_Name = request.User_Name,
@@ -77,35 +80,38 @@ namespace AdvanceCSharp.service
                 User_Email = request.User_Email
             };
 
-            using (AppDbContext  dbContext = new AppDbContext())
+            using (AppDbContext dbContext = new())
             {
                 _ = dbContext.Users.Update(tmpUser);
                 _ = dbContext.SaveChanges();
 
-                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                Users? GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
                 response.User_ID = GetUser.User_ID;
                 response.User_Name = GetUser.User_Name;
                 response.User_Email = GetUser.User_Email;
                 response.User_Contact = GetUser.User_Contact;
             }
-            return response;
+            return Task.FromResult(response);
         }
 
-        public async Task<DeleteUserResponse> DeleteUser (DeleteUserRequest request)
+        public Task<DeleteUserResponse> DeleteUser (DeleteUserRequest request)
         {
-            DeleteUserResponse response = new DeleteUserResponse();
-            using (AppDbContext dbContext = new AppDbContext()) 
+            DeleteUserResponse response = new();
+            using (AppDbContext dbContext = new())
             {
-                _ = dbContext.Users.Remove(dbContext.Users.Find(request.User_ID));
-                dbContext.SaveChanges();
 
-                Users GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
-                response.User_ID = GetUser.User_ID;
-                response.User_Name = GetUser.User_Name;
-                response.User_Email = GetUser.User_Email;
-                response.User_Contact = GetUser.User_Contact;
+                Users? FindedUser = dbContext.Users.Find(request.User_ID);
+                _ = dbContext.Users.Remove(FindedUser);
+                _ = dbContext.SaveChanges();
+
+                Users ?GetUser = dbContext.Users.Where(user => user.User_ID == request.User_ID).FirstOrDefault();
+                response.User_ID = Guid.Empty;
+                response.User_Name = "";
+                response.User_Email = "";
+                response.User_Contact = "";
             }
-            return response;
+            return Task.FromResult(response);
         }
     }
 }
+

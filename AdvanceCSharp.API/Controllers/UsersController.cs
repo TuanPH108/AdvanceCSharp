@@ -9,7 +9,7 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private UsersService _UserService;
+        private readonly UsersService _UserService;
         public UsersController()
         {
             _UserService = new UsersService();
@@ -21,7 +21,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.GetById(request));
+                return new JsonResult(await UsersService.GetById(request));
             }
             catch (Exception ex)
             {

@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Carts\Response\" />
-    <Folder Include="Carts\Request\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AdvanceCSharp.database\AdvanceCSharp.database.csproj" />
   </ItemGroup>
 

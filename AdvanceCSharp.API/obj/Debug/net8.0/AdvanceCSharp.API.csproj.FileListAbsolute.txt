@@ -1,3 +1,11 @@
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.csproj.AssemblyReference.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.AssemblyInfoInputs.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.AssemblyInfo.cs
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.csproj.CoreCompileInputs.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.sourcelink.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\appsettings.Development.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\appsettings.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\AdvanceCSharp.API.exe
@@ -53,13 +61,6 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\Advan
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\AdvanceCSharp.dto.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\AdvanceCSharp.service.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\bin\Debug\net8.0\AdvanceCSharp.database.pdb
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.csproj.AssemblyReference.cache
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.AssemblyInfoInputs.cache
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.AssemblyInfo.cs
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.csproj.CoreCompileInputs.cache
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\staticwebassets.build.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\staticwebassets.development.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\staticwebassets\msbuild.AdvanceCSharp.API.Microsoft.AspNetCore.StaticWebAssets.props
@@ -74,4 +75,3 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\refin
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.genruntimeconfig.cache
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\ref\AdvanceCSharp.API.dll
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.API\obj\Debug\net8.0\AdvanceCSharp.API.sourcelink.json

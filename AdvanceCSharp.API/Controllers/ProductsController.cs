@@ -9,7 +9,7 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private ProductsService _ProductService;
+        private readonly ProductsService _ProductService;
 
         public ProductsController()
         {
@@ -22,7 +22,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductService.GetProduct(request));
+                return new JsonResult(await ProductsService.GetProduct(request));
             }
             catch (Exception ex) 
             {
@@ -36,7 +36,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetListProductResponse response = await _ProductService.GetListProduct(request);
+                GetListProductResponse response = await ProductsService.GetListProduct(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -51,7 +51,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductService.UpdateProduct(request));
+                return new JsonResult(await ProductsService.UpdateProduct(request));
             }
             catch(Exception ex)
             {
@@ -65,7 +65,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductService.CreateProduct(request));
+                return new JsonResult(await ProductsService.CreateProduct(request));
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductService.DeleteProduct(request));
+                return new JsonResult(await ProductsService.DeleteProduct(request));
             }
             catch( Exception ex) 
             {

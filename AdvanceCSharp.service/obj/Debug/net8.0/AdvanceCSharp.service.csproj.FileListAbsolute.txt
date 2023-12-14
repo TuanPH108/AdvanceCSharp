@@ -10,9 +10,9 @@ D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\A
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.AssemblyInfoInputs.cache
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.AssemblyInfo.cs
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.csproj.CoreCompileInputs.cache
+D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.sourcelink.json
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.csproj.CopyComplete
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.dll
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\refint\AdvanceCSharp.service.dll
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.pdb
 D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\ref\AdvanceCSharp.service.dll
-D:\Git Repo\AdvanceCSharp\AdvanceCSharp\AdvanceCSharp.service\obj\Debug\net8.0\AdvanceCSharp.service.sourcelink.json
