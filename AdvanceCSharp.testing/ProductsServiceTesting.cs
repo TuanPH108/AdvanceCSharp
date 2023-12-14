@@ -43,11 +43,10 @@ namespace AdvanceCSharp.testing
         [TestMethod]
         public async Task CreateProductTesting()
         {
-            CreateProductRequest createProductRequest = new()
+            CreateProductRequest request = new()
             {
                 Product_ID = Guid.NewGuid()
             };
-            CreateProductRequest request = createProductRequest;
             CreateProductResponse response = await _ProductsService.CreateProduct(request);
             //Check response is not null
             Assert.IsNotNull(response);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdvanceCSharp.testing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a7e71acccecb000080aec4d18485a073f23cb37")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdvanceCSharp.testing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdvanceCSharp.testing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -7,7 +7,7 @@ namespace AdvanceCSharp.service
 {
     public class CartsService
     {
-        public static Task<GetCartResponse> GetCart(GetCartRequest request)
+        public Task<GetCartResponse> GetCart(GetCartRequest request)
         {
             GetCartResponse response = new();
             using (AppDbContext dbContext = new())
@@ -22,7 +22,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<GetListCartResponse> GetListCart(GetListCartRequest request)
+        public Task<GetListCartResponse> GetListCart(GetListCartRequest request)
         {
             GetListCartResponse response = new();
             using AppDbContext dbContext = new();
@@ -41,7 +41,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<CreateCartResponse> CreateCart(CreateCartRequest request)
+        public Task<CreateCartResponse> CreateCart(CreateCartRequest request)
         {
             CreateCartResponse response = new();
             using (AppDbContext dbContext = new())
@@ -67,7 +67,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<UpdateCartResponse> UpdateCart(UpdateCartRequest request)
+        public Task<UpdateCartResponse> UpdateCart(UpdateCartRequest request)
         {
             UpdateCartResponse response = new();
             using (AppDbContext dbContext = new())
@@ -94,7 +94,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<DeleteCartResponse> DeleteCart(DeleteCartRequest request)
+        public Task<DeleteCartResponse> DeleteCart(DeleteCartRequest request)
         {
             using (AppDbContext dbContext = new())
             {

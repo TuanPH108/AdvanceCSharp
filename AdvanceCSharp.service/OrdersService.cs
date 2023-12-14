@@ -7,7 +7,7 @@ namespace AdvanceCSharp.service
 {
     public class OrdersService
     {
-        public static Task<GetOrderResponse> GetOrder(GetOrderRequest request)
+        public Task<GetOrderResponse> GetOrder(GetOrderRequest request)
         {
             GetOrderResponse response = new();
             using (AppDbContext dbContext = new())
@@ -22,7 +22,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<GetListOrderResponse> GetListOrder(GetListOrderRequest request)
+        public Task<GetListOrderResponse> GetListOrder(GetListOrderRequest request)
         {
             GetListOrderResponse response = new();
             using (AppDbContext dbContext = new())
@@ -43,7 +43,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
+        public Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
         {
             CreateOrderResponse response = new();
             using (AppDbContext dbContext = new())
@@ -70,7 +70,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult (response);
         }
 
-        public static Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request)
+        public Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request)
         {
             UpdateOrderResponse response = new();
             using (AppDbContext dbContext = new())
@@ -95,7 +95,7 @@ namespace AdvanceCSharp.service
             return Task.FromResult(response);
         }
 
-        public static Task<DeleteOrderResponse> DeleteOrder(DeleteOrderRequest request)
+        public Task<DeleteOrderResponse> DeleteOrder(DeleteOrderRequest request)
         {
             DeleteOrderResponse response = new()
             {
