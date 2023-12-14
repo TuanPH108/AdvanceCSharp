@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AdvanceCSharp/FileContentIndex
+/AdvanceCSharp.API/obj
+/AdvanceCSharp.API/AdvanceCSharp.API.csproj.user
+/AdvanceCSharp.database/obj
+/AdvanceCSharp.dto/obj
+/AdvanceCSharp.service/obj
+/AdvanceCSharp.testing/bin/Debug/net8.0
+/AdvanceCSharp.testing/obj
