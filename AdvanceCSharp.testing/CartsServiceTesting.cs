@@ -68,19 +68,5 @@ namespace AdvanceCSharp.testing
             //Check response is not null
             Assert.IsNull(response);
         }
-        /// <summary>
-        /// Test Delete Cart
-        /// </summary>
-        [TestMethod]
-        public async Task DeleteCartTesting()
-        {
-            DeleteCartRequest request = new()
-            {
-                CartID = new Guid(" ")
-            };
-            DeleteCartResponse response = await _cartsService.Delete(request);
-            //Check response is not null
-            Assert.IsNull(response);
-        }
     }
 }

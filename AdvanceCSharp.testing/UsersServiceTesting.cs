@@ -21,7 +21,7 @@ namespace AdvanceCSharp.testing
         {
             GetUserRequest request = new()
             { 
-                User_ID = Guid.Parse("D76B6A97-4B54-4C5E-1550-08DBF88F51D9"),
+                UserID = Guid.Parse("D76B6A97-4B54-4C5E-1550-08DBF88F51D9"),
             };
 
             GetUserResponse response = await _userService.Get(request);

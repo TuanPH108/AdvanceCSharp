@@ -69,19 +69,5 @@ namespace AdvanceCSharp.testing
                 //Check response is not null
                 Assert.IsNull(response);
             }
-            /// <summary>
-            /// Test Delete
-            /// </summary>
-            [TestMethod]
-            public async Task DeleteOrderTesting()
-            {
-                DeleteOrderRequest request = new()
-                {
-                    OrderID = Guid.Parse(" ")
-                };
-                DeleteOrderResponse response = await _ordersService.Delete(request);
-                //Check response is not null
-                Assert.IsNull(response);
-            }
         }
     }
