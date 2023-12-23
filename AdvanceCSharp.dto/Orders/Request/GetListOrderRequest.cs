@@ -2,6 +2,6 @@
 {
     public class GetListOrderRequest
     {
-        public Guid User_Id { get; set; }
+        public Guid UserId { get; set; }
     }
 }

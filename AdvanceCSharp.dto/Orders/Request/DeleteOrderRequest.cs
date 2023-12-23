@@ -2,6 +2,6 @@
 {
     public class DeleteOrderRequest
     {
-        public Guid Order_ID { get; set; }
+        public Guid OrderID { get; set; }
     }
 }

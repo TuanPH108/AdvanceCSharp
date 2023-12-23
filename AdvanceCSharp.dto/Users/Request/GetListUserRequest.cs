@@ -2,6 +2,6 @@
 {
     public class GetListUserRequest
     {
-        public string User_Email {  get; set; }
+        public string UserEmail {  get; set; }
     }
 }

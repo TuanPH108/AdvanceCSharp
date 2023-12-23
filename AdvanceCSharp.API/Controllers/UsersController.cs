@@ -8,10 +8,10 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UsersService _UserService;
+        private readonly UsersService _userService;
         public UsersController()
         {
-            _UserService = new UsersService();
+            _userService = new UsersService();
         }
         /// <summary>
         /// HTTP GET
@@ -22,7 +22,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.GetById(request));
+                return new JsonResult(await _userService.Get(request));
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.GetList(request));
+                return new JsonResult(await _userService.GetList(request));
             }
             catch (Exception ex)
             {
@@ -54,7 +54,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.CreateUser(request));
+                return new JsonResult(await _userService.Create(request));
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.UpdateUser(request));
+                return new JsonResult(await _userService.Update(request));
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _UserService.DeleteUser(request));
+                return new JsonResult(await _userService.Delete(request));
             }
             catch (Exception ex)
             {

@@ -2,6 +2,6 @@
 {
     public class GetUserRequest
     {
-        public Guid User_ID { get; set; }
+        public Guid UserID { get; set; }
     }
 }

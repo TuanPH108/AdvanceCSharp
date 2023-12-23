@@ -2,9 +2,9 @@
 {
     public class CreateProductResponse
     {
-        public Guid Product_ID { get; set; }
-        public string Product_Name { get; set; } = string.Empty;
-        public int Product_Price { get; set; }
-        public string Product_Type { get; set; } = string.Empty;
+        public Guid ProductID { get; set; }
+        public string ProductName { get; set; } = string.Empty;
+        public int ProductPrice { get; set; }
+        public string ProductType { get; set; } = string.Empty;
     }
 }

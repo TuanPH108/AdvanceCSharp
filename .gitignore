@@ -10,3 +10,11 @@
 /AdvanceCSharp.service/obj
 /AdvanceCSharp.testing/bin/Debug/net8.0
 /AdvanceCSharp.testing/obj
+/.vs
+/AdvanceCSharp.API/bin/Debug/net8.0/runtimes
+/AdvanceCSharp.API/bin/Debug/net8.0
+/AdvanceCSharp.database/bin/Debug/net8.0
+/AdvanceCSharp.dto/bin/Debug/net8.0
+/AdvanceCSharp.dummy/obj/Debug/net8.0
+/AdvanceCSharp.dummy/obj
+/AdvanceCSharp.service/bin/Debug/net8.0

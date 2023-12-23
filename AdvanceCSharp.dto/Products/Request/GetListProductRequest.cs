@@ -2,6 +2,6 @@
 {
     public class GetListProductRequest
     {
-        public string Product_Name {  get; set; }
+        public string ProductName {  get; set; }
     }
 }

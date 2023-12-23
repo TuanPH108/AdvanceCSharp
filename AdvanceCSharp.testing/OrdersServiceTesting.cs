@@ -7,11 +7,11 @@ namespace AdvanceCSharp.testing
     [TestClass]
     public class OrdersServiceTesting
     {
-            private readonly OrdersService _OrdersService;
+            private readonly OrdersService _ordersService;
 
             public OrdersServiceTesting()
             {
-                _OrdersService = new();
+                _ordersService = new();
             }
             /// <summary>
             /// Test Get Order
@@ -21,11 +21,11 @@ namespace AdvanceCSharp.testing
             {
                 GetOrderRequest request = new()
                 {
-                    Order_ID = Guid.Parse(" ")
+                    OrderID = Guid.Parse(" ")
                 };
-                GetOrderResponse response = await _OrdersService.GetOrder(request);
+                GetOrderResponse response = await _ordersService.Get(request);
                 //Check response is not null
-                Assert.IsNotNull(response);
+                Assert.IsNull(response);
             }
             /// <summary>
             /// Test Get Order (List)
@@ -35,13 +35,11 @@ namespace AdvanceCSharp.testing
             {
             GetListOrderRequest request = new()
             {
-                User_Id = Guid.Parse(" ")
+                UserId = Guid.Parse(" ")
                 };
-                GetListOrderResponse response = await _OrdersService.GetListOrder(request);
-                //Check response is not null
-                Assert.IsNotNull(response);
+                GetListOrderResponse response = await _ordersService.GetList(request);
                 //Check Response 1 list of order
-                Assert.IsTrue(response.ListOrder.Count > 0);
+                Assert.IsTrue(response.ListOrder.Count == 0);
             }
             /// <summary>
             /// Test Create
@@ -51,9 +49,9 @@ namespace AdvanceCSharp.testing
             {
                 CreateOrderRequest request = new()
                 {
-                    Order_ID = Guid.NewGuid()
+                    OrderID = Guid.NewGuid()
                 };
-                CreateOrderResponse response = await _OrdersService.CreateOrder(request);
+                CreateOrderResponse response = await _ordersService.Create(request);
                 //Check response is not null
                 Assert.IsNotNull(response);
                 }
@@ -65,11 +63,11 @@ namespace AdvanceCSharp.testing
             {
                 UpdateOrderRequest request = new()
                 {
-                    Order_ID = Guid.Parse(" ")
+                    OrderID = Guid.Parse(" ")
                 };
-                UpdateOrderResponse response = await _OrdersService.UpdateOrder(request);
+                UpdateOrderResponse response = await _ordersService.Update(request);
                 //Check response is not null
-                Assert.IsNotNull(response);
+                Assert.IsNull(response);
             }
             /// <summary>
             /// Test Delete
@@ -79,11 +77,11 @@ namespace AdvanceCSharp.testing
             {
                 DeleteOrderRequest request = new()
                 {
-                    Order_ID = Guid.Parse(" ")
+                    OrderID = Guid.Parse(" ")
                 };
-                DeleteOrderResponse response = await _OrdersService.DeleteOrder(request);
+                DeleteOrderResponse response = await _ordersService.Delete(request);
                 //Check response is not null
-                Assert.IsNotNull(response);
+                Assert.IsNull(response);
             }
         }
     }

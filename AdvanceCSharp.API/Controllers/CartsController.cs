@@ -9,11 +9,11 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class CartsController : ControllerBase
     {
-        private readonly CartsService _CartService;
+        private readonly CartsService _cartService;
 
         public CartsController()
         {
-            _CartService = new CartsService();
+            _cartService = new CartsService();
         }
         /// <summary>
         /// HTTP GET
@@ -24,7 +24,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetCartResponse response = await _CartService.GetCart(request);
+                GetCartResponse response = await _cartService.Get(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -41,7 +41,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {   
-                GetListCartResponse response = await _CartService.GetListCart(request);
+                GetListCartResponse response = await _cartService.GetList(request);
                 return new JsonResult(response);
             }
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                CreateCartResponse response = await _CartService.CreateCart(request);
+                CreateCartResponse response = await _cartService.Create(request);
                 return new JsonResult(response);
             }
             catch (Exception ex)
@@ -75,7 +75,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                UpdateCartResponse response = await _CartService.UpdateCart(request);
+                UpdateCartResponse response = await _cartService.Update(request);
                 return new JsonResult(response);
             }
             catch (Exception ex)
@@ -92,7 +92,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                DeleteCartResponse response = await _CartService.DeleteCart(request);
+                DeleteCartResponse response = await _cartService.Delete(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)

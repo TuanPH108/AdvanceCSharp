@@ -9,11 +9,11 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ProductsService _ProductsService;
+        private readonly ProductsService _productsService;
 
         public ProductsController()
         {
-            _ProductsService = new ProductsService();
+            _productsService = new ProductsService();
         }
         /// <summary>
         /// HTTP GET
@@ -24,7 +24,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductsService.GetProduct(request));
+                return new JsonResult(await _productsService.Get(request));
             }
             catch (Exception ex) 
             {
@@ -40,7 +40,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetListProductResponse response = await _ProductsService.GetListProduct(request);
+                GetListProductResponse response = await _productsService.GetList(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -57,7 +57,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductsService.UpdateProduct(request));
+                return new JsonResult(await _productsService.Update(request));
             }
             catch(Exception ex)
             {
@@ -73,7 +73,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductsService.CreateProduct(request));
+                return new JsonResult(await _productsService.Create(request));
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                return new JsonResult(await _ProductsService.DeleteProduct(request));
+                return new JsonResult(await _productsService.Delete(request));
             }
             catch( Exception ex) 
             {

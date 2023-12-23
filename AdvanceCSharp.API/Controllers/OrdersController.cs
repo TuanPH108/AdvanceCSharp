@@ -9,11 +9,11 @@ namespace AdvanceCSharp.API.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly OrdersService _OrderService;
+        private readonly OrdersService _orderService;
 
         public OrdersController()
         {
-            _OrderService = new OrdersService();
+            _orderService = new OrdersService();
         }
         /// <summary>
         /// HTTP GET
@@ -24,7 +24,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetOrderResponse response = await _OrderService.GetOrder(request);
+                GetOrderResponse response = await _orderService.Get(request);
                 return new JsonResult(response);
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                GetListOrderResponse response = await _OrderService.GetListOrder(request);
+                GetListOrderResponse response = await _orderService.GetList(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -58,7 +58,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                CreateOrderResponse response = await _OrderService.CreateOrder(request);
+                CreateOrderResponse response = await _orderService.Create(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -75,7 +75,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                DeleteOrderResponse response = await _OrderService.DeleteOrder(request);
+                DeleteOrderResponse response = await _orderService.Delete(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)
@@ -92,7 +92,7 @@ namespace AdvanceCSharp.API.Controllers
         {
             try
             {
-                UpdateOrderResponse response = await _OrderService.UpdateOrder(request);
+                UpdateOrderResponse response = await _orderService.Update(request);
                 return new JsonResult(response);
             }
             catch(Exception ex)

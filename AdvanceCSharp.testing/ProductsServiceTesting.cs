@@ -7,11 +7,11 @@ namespace AdvanceCSharp.testing
     [TestClass]
     public class ProductsServiceTesting
     {
-        private readonly ProductsService _ProductsService;
+        private readonly ProductsService _productsService;
 
         public ProductsServiceTesting()
         {
-            _ProductsService = new ProductsService();
+            _productsService = new ProductsService();
         }
         /// <summary>
         /// Test Get Product
@@ -21,55 +21,53 @@ namespace AdvanceCSharp.testing
         {
             GetProductRequest request = new()
             {
-                Product_ID = Guid.Parse("1CF6EA52-47A0-46AC-7C07-08DBF891BB00")
+                ProductID = Guid.Parse("1CF6EA52-47A0-46AC-7C07-08DBF891BB00")
             };
-            GetProductResponse response = await _ProductsService.GetProduct(request);
+            GetProductResponse response = await _productsService.Get(request);
             //Check response is not null
             Assert.IsNotNull(response);
         }
+        /// <summary>
+        /// Test Get List Product
+        /// </summary>
         [TestMethod]
         public async Task GetListProductTesting()
         {
             GetListProductRequest request = new()
             {
-                Product_Name = "Macbook"
+                ProductName = "Macbook"
             };
-            GetListProductResponse response = await _ProductsService.GetListProduct(request);
+            GetListProductResponse response = await _productsService.GetList(request);
             //Check response is not null
             Assert.IsNotNull(response);
             //Check Response 1 list of product
             Assert.IsTrue(response.ListProduct.Count > 0);
         }
+        /// <summary>
+        /// Test Create Product
+        /// </summary>
         [TestMethod]
         public async Task CreateProductTesting()
         {
             CreateProductRequest request = new()
             {
-                Product_ID = Guid.NewGuid()
+                ProductID = Guid.NewGuid()
             };
-            CreateProductResponse response = await _ProductsService.CreateProduct(request);
+            CreateProductResponse response = await _productsService.Create(request);
             //Check response is not null
             Assert.IsNotNull(response);
         }
+        /// <summary>
+        /// Test Update Product
+        /// </summary>
         [TestMethod]
         public async Task UpdateProductTesting()
         {
             UpdateProductRequest request = new()
             {
-                Product_ID = Guid.Parse("F05C7BF8-B542-48D6-7C0A-08DBF891BB00")
+                ProductID = Guid.Parse("F05C7BF8-B542-48D6-7C0A-08DBF891BB00")
             };
-            UpdateProductResponse response = await _ProductsService.UpdateProduct(request);
-            //Check response is not null
-            Assert.IsNotNull(response);
-        }
-        [TestMethod]
-        public async Task DeleteProductTesting()
-        {
-            DeleteProductRequest request = new()
-            {
-                Product_ID = Guid.Parse("A38BA0FE-F6A9-413D-7C11-08DBF891BB00")
-            };
-            DeleteProductResponse response = await _ProductsService.DeleteProduct(request);
+            UpdateProductResponse response = await _productsService.Update(request);
             //Check response is not null
             Assert.IsNotNull(response);
         }

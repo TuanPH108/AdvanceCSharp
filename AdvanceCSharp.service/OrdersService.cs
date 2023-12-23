@@ -2,57 +2,58 @@
 using AdvanceCSharp.dto.Orders.Response;
 using AdvanceCSharp.database.Model;
 using AdvanceCSharp.database;
+using AdvanceCSharp.service.Interface;
 
 namespace AdvanceCSharp.service
 {
-    public class OrdersService
+    public class OrdersService : IOrdersService
     {
-        public Task<GetOrderResponse> GetOrder(GetOrderRequest request)
+        public Task<GetOrderResponse> Get(GetOrderRequest request)
         {
             GetOrderResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Orders? GetOrder = dbContext.Orders.Where(order => order.Order_ID == request.Order_ID).FirstOrDefault();
-                response.Order_ID = GetOrder.Order_ID;
-                response.Product_ID = GetOrder.Product_ID;
-                response.User_ID = GetOrder.User_ID;
-                response.Price = GetOrder.Price;
-                response.Quantity = GetOrder.Quantity;
+                Orders? getOrder = dbContext.Orders.Where(order => order.OrderID == request.OrderID).FirstOrDefault();
+                response.OrderID = getOrder.OrderID;
+                response.ProductID = getOrder.ProductID;
+                response.UserID = getOrder.UserID;
+                response.Price = getOrder.Price;
+                response.Quantity = getOrder.Quantity;
             }
             return Task.FromResult(response);
         }
 
-        public Task<GetListOrderResponse> GetListOrder(GetListOrderRequest request)
+        public Task<GetListOrderResponse> GetList(GetListOrderRequest request)
         {
             GetListOrderResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                List<Orders> ListOrder = [.. dbContext.Orders.Where(order => order.User_ID == request.User_Id)];
-                foreach(Orders order in ListOrder)
+                List<Orders> listOrder = [.. dbContext.Orders.Where(order => order.UserID == request.UserId)];
+                foreach(Orders order in listOrder)
                 {
-                    GetOrderResponse TmpOrder = new()
+                    GetOrderResponse tempOrder = new()
                     {
-                        Order_ID = order.Order_ID,
-                        Product_ID = order.Product_ID,
+                        OrderID = order.OrderID,
+                        ProductID = order.ProductID,
                         Price = order.Price,
                         Quantity = order.Quantity
                     };
-                    response.ListOrder.Add(TmpOrder);
+                    response.ListOrder.Add(tempOrder);
                 }
             }
             return Task.FromResult(response);
         }
 
-        public Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
+        public Task<CreateOrderResponse> Create(CreateOrderRequest request)
         {
             CreateOrderResponse response = new();
             using (AppDbContext dbContext = new())
             {
                 Orders orders = new()
                 {
-                    Order_ID = request.Order_ID,
-                    Product_ID = request.Product_ID,
-                    User_ID = request.User_ID,
+                    OrderID = request.OrderID,
+                    ProductID = request.ProductID,
+                    UserID = request.UserID,
                     Price = request.Price,
                     Quantity = request.Quantity
                 };
@@ -60,55 +61,55 @@ namespace AdvanceCSharp.service
                 dbContext.Orders.Add(CreateOrder);
                 dbContext.SaveChanges();
 
-                Orders? GetOrder = dbContext.Orders.Where(order => order.Order_ID == request.Order_ID).FirstOrDefault();
-                response.Order_ID = GetOrder.Order_ID;
-                response.Product_ID = GetOrder.Product_ID;
-                response.User_ID = GetOrder.User_ID;
-                response.Price = GetOrder.Price;
-                response.Quantity = GetOrder.Quantity;
+                Orders? getOrder = dbContext.Orders.Where(order => order.OrderID == request.OrderID).FirstOrDefault();
+                response.OrderID = getOrder.OrderID;
+                response.ProductID = getOrder.ProductID;
+                response.UserID = getOrder.UserID;
+                response.Price = getOrder.Price;
+                response.Quantity = getOrder.Quantity;
             }
             return Task.FromResult (response);
         }
 
-        public Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request)
+        public Task<UpdateOrderResponse> Update(UpdateOrderRequest request)
         {
             UpdateOrderResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Orders UpdateOrder = new() { 
-                    Order_ID = request.Order_ID,
-                    Product_ID = request.Product_ID,
-                    User_ID = request.User_ID,
+                Orders updateOrder = new() { 
+                    OrderID = request.OrderID,
+                    ProductID = request.ProductID,
+                    UserID = request.UserID,
                     Price = request.Price,
                     Quantity = request.Quantity
                 };
-                dbContext.Update(UpdateOrder);
+                dbContext.Update(updateOrder);
                 dbContext.SaveChanges();
 
-                Orders? GetOrder = dbContext.Orders.Where(order => order.Order_ID == request.Order_ID).FirstOrDefault();
-                response.Order_ID = GetOrder.Order_ID;
-                response.Product_ID = GetOrder.Product_ID;
-                response.User_ID = GetOrder.User_ID;
-                response.Price = GetOrder.Price;
-                response.Quantity = GetOrder.Quantity;
+                Orders? getOrder = dbContext.Orders.Where(order => order.OrderID == request.OrderID).FirstOrDefault();
+                response.OrderID = getOrder.OrderID;
+                response.ProductID = getOrder.ProductID;
+                response.UserID = getOrder.UserID;
+                response.Price = getOrder.Price;
+                response.Quantity = getOrder.Quantity;
             }
             return Task.FromResult(response);
         }
 
-        public Task<DeleteOrderResponse> DeleteOrder(DeleteOrderRequest request)
+        public Task<DeleteOrderResponse> Delete(DeleteOrderRequest request)
         {
             DeleteOrderResponse response = new()
             {
-                Order_ID = Guid.Empty,
-                Product_ID = Guid.Empty,
-                User_ID = Guid.Empty,
+                OrderID = Guid.Empty,
+                ProductID = Guid.Empty,
+                UserID = Guid.Empty,
                 Quantity = 0,
                 Price = 0
             };
             using (AppDbContext dbContext = new())
             {
-                Orders? DeleteOrder = dbContext.Orders.Find(request.Order_ID);
-                _ = dbContext.Orders.Remove(DeleteOrder);
+                Orders? deleteOrder = dbContext.Orders.Find(request.OrderID);
+                _ = dbContext.Orders.Remove(deleteOrder);
                 dbContext.SaveChanges();
             }
             return Task.FromResult(response);

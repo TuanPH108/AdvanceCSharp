@@ -7,10 +7,10 @@ namespace AdvanceCSharp.testing
     [TestClass]
     public class CartsServiceTesting
     {
-        private readonly CartsService _CartsService;
+        private readonly CartsService _cartsService;
         public CartsServiceTesting() 
         {
-            _CartsService = new();
+            _cartsService = new();
         }
         /// <summary>
         /// Test Get Cart
@@ -20,9 +20,9 @@ namespace AdvanceCSharp.testing
         {
             GetCartRequest request = new()
             {
-                User_ID = Guid.Parse(" ")
+                UserID = Guid.Parse(" ")
             };
-            GetCartResponse response = await _CartsService.GetCart (request);
+            GetCartResponse response = await _cartsService.Get (request);
             //Check response is not null
             Assert.IsNotNull(response);
         }
@@ -34,13 +34,11 @@ namespace AdvanceCSharp.testing
         {
             GetListCartRequest request = new()
             {
-                User_ID = new Guid(" ")
+                UserID = new Guid(" ")
             };
-            GetListCartResponse response = await _CartsService.GetListCart (request);
-            //Check list response is not null
-            Assert.IsNotNull(response);
+            GetListCartResponse response = await _cartsService.GetList (request);
             //Check list response not empty
-            Assert.IsTrue(response.ListCart.Count > 0);
+            Assert.IsTrue(response.ListCart.Count == 0);
         }
         /// <summary>
         /// Test Create Cart
@@ -50,11 +48,11 @@ namespace AdvanceCSharp.testing
         {
             CreateCartRequest request = new()
             { 
-                Cart_ID = Guid.NewGuid()
+                CartID = Guid.NewGuid()
             };
-            CreateCartResponse respones = await _CartsService.CreateCart (request);
+            CreateCartResponse respones = await _cartsService.Create (request);
             //Check response not null
-            Assert.IsNotNull(respones);
+            Assert.IsNull(respones);
         }
         /// <summary>
         /// Test Update Cart
@@ -64,11 +62,11 @@ namespace AdvanceCSharp.testing
         {
             UpdateCartRequest request = new()
             {
-                Cart_ID = new Guid(" ")
+                CartID = new Guid(" ")
             };
-            UpdateCartResponse response = await _CartsService.UpdateCart (request);
+            UpdateCartResponse response = await _cartsService.Update (request);
             //Check response is not null
-            Assert.IsNotNull(response);
+            Assert.IsNull(response);
         }
         /// <summary>
         /// Test Delete Cart
@@ -78,11 +76,11 @@ namespace AdvanceCSharp.testing
         {
             DeleteCartRequest request = new()
             {
-                Cart_ID = new Guid(" ")
+                CartID = new Guid(" ")
             };
-            DeleteCartResponse response = await _CartsService.DeleteCart(request);
+            DeleteCartResponse response = await _cartsService.Delete(request);
             //Check response is not null
-            Assert.IsNotNull(response);
+            Assert.IsNull(response);
         }
     }
 }

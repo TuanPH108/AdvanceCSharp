@@ -2,108 +2,107 @@
 using AdvanceCSharp.database.Model;
 using AdvanceCSharp.dto.Products.Request;
 using AdvanceCSharp.dto.Products.Response;
+using AdvanceCSharp.service.Interface;
 
 namespace AdvanceCSharp.service
 {
-    public class ProductsService
+    public class ProductsService : IProductsService
     {
-        public Task<GetProductResponse> GetProduct(GetProductRequest request)
+        public Task<GetProductResponse> Get(GetProductRequest request)
         {
             GetProductResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Products? GetProduct = dbContext.Products.Where(product => product.Product_ID == request.Product_ID).FirstOrDefault();
-                response.Product_ID = GetProduct.Product_ID;
-                response.Product_Name = GetProduct.Product_Name;
-                response.Product_Price = GetProduct.Product_Price;
-                response.Product_Type = GetProduct.Product_Type;
+                Products? getProduct = dbContext.Products.Where(product => product.ProductID == request.ProductID).FirstOrDefault();
+                response.ProductID = getProduct.ProductID;
+                response.ProductName = getProduct.ProductName;
+                response.ProductPrice = getProduct.ProductPrice;
+                response.ProductType = getProduct.ProductType;
             }
             return Task.FromResult(response);
         }
 
-        public Task<GetListProductResponse> GetListProduct(GetListProductRequest request)
+        public Task<GetListProductResponse> GetList(GetListProductRequest request)
         {
             GetListProductResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                List<Products> GetListProduct = [.. dbContext.Products.Where(product => product.Product_Name == request.Product_Name)];
+                List<Products> GetListProduct = [.. dbContext.Products.Where(product => product.ProductName == request.ProductName)];
                 foreach (Products product in GetListProduct)
                 {
                     response.ListProduct.Add(new GetProductResponse()
                     {
-                        Product_ID = product.Product_ID,
-                        Product_Name = product.Product_Name,
-                        Product_Price = product.Product_Price,
-                        Product_Type = product.Product_Type
+                        ProductID = product.ProductID,
+                        ProductName = product.ProductName,
+                        ProductPrice = product.ProductPrice,
+                        ProductType = product.ProductType
                     });
                 }
             }    
             return Task.FromResult(response);
         }
 
-        public Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
+        public Task<UpdateProductResponse> Update(UpdateProductRequest request)
         {
             UpdateProductResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Products UpdateProduct = new()
+                Products updateProduct = new()
                 {
-                    Product_ID = request.Product_ID,
-                    Product_Name = request.Product_Name,
-                    Product_Price = request.Product_Price,
-                    Product_Type = request.Product_Type
+                    ProductID = request.ProductID,
+                    ProductName = request.ProductName,
+                    ProductPrice = request.ProductPrice,
+                    ProductType = request.ProductType
                 };  
-                _ = dbContext.Products.Update(UpdateProduct);
+                _ = dbContext.Products.Update(updateProduct);
                 _ = dbContext.SaveChanges();
 
-                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
-                response.Product_ID = GetProduct.Product_ID;
-                response.Product_Name = GetProduct.Product_Name;
-                response.Product_Type = GetProduct.Product_Type;
-                response.Product_Price = GetProduct.Product_Price;
+                Products? getProduct = dbContext.Products.Where(p => p.ProductID == request.ProductID).FirstOrDefault();
+                response.ProductID = getProduct.ProductID;
+                response.ProductName = getProduct.ProductName;
+                response.ProductType = getProduct.ProductType;
+                response.ProductPrice = getProduct.ProductPrice;
             }
             return Task.FromResult(response);
         }
 
-        public Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
+        public Task<CreateProductResponse> Create(CreateProductRequest request)
         {
             CreateProductResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Products tmpProduct = new()
+                Products tempProduct = new()
                 {
-                    Product_ID = request.Product_ID,
-                    Product_Name = request.Product_Name,
-                    Product_Price = request.Product_Price,
-                    Product_Type = request.Product_Type
+                    ProductID = request.ProductID,
+                    ProductName = request.ProductName,
+                    ProductPrice = request.ProductPrice,
+                    ProductType = request.ProductType
                 };
-                _= dbContext.Products.Add(tmpProduct);
+                _= dbContext.Products.Add(tempProduct);
                 _ = dbContext.SaveChanges();
 
-                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
-                response.Product_ID = GetProduct.Product_ID;
-                response.Product_Name = GetProduct.Product_Name;
-                response.Product_Type = GetProduct.Product_Type;
-                response.Product_Price = GetProduct.Product_Price;
+                Products? getProduct = dbContext.Products.Where(p => p.ProductID == request.ProductID).FirstOrDefault();
+                response.ProductID = getProduct.ProductID;
+                response.ProductName = getProduct.ProductName;
+                response.ProductType = getProduct.ProductType;
+                response.ProductPrice = getProduct.ProductPrice;
             }
             return Task.FromResult(response);
         }
 
-        public Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request)
+        public Task<DeleteProductResponse> Delete(DeleteProductRequest request)
         {
             DeleteProductResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Products? FindedProduct = dbContext.Products.Find(request.Product_ID);
-                _ = dbContext.Products.Remove(FindedProduct);
+                Products? findProduct = dbContext.Products.Find(request.ProductID);
+                _ = dbContext.Products.Remove(findProduct);
                 _ = dbContext.SaveChanges();
-
-                Products? GetProduct = dbContext.Products.Where(p => p.Product_ID == request.Product_ID).FirstOrDefault();
-                response.Product_ID = Guid.Empty;
-                response.Product_Name = "";
-                response.Product_Type = "";
-                response.Product_Price = 0;
             }
+            response.ProductID = Guid.Empty;
+            response.ProductName = "";
+            response.ProductType = "";
+            response.ProductPrice = 0;
             return Task.FromResult(response);
         }
     }

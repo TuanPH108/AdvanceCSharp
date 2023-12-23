@@ -2,113 +2,114 @@
 using AdvanceCSharp.database.Model;
 using AdvanceCSharp.dto.Carts.Request;
 using AdvanceCSharp.dto.Carts.Response;
+using AdvanceCSharp.service.Interface;
 
 namespace AdvanceCSharp.service
 {
-    public class CartsService
+    public class CartsService : ICartsService
     {
-        public Task<GetCartResponse> GetCart(GetCartRequest request)
+        public Task<GetCartResponse> Get(GetCartRequest request)
         {
             GetCartResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Carts? GetCart = dbContext.Carts.Where(cart => cart.User_ID == request.User_ID).FirstOrDefault();
-                response.Cart_ID = GetCart.Cart_ID;
-                response.User_ID = GetCart.User_ID;
-                response.Quantity = GetCart.Quantity;
-                response.Cart_List_Product = GetCart.Cart_List_Product;
-                response.Total = GetCart.Total;
+                Carts? getCart = dbContext.Carts.Where(cart => cart.UserID == request.UserID).FirstOrDefault();
+                response.CartID = getCart.CartID;
+                response.UserID = getCart.UserID;
+                response.Quantity = getCart.Quantity;
+                response.CartListProduct = getCart.CartListProduct;
+                response.Total = getCart.Total;
             }
             return Task.FromResult(response);
         }
 
-        public Task<GetListCartResponse> GetListCart(GetListCartRequest request)
+        public Task<GetListCartResponse> GetList(GetListCartRequest request)
         {
             GetListCartResponse response = new();
             using AppDbContext dbContext = new();
-            List<Carts>? ListCart = [.. dbContext.Carts.Where(cart => cart.User_ID == request.User_ID)];
-            foreach (Carts cart in ListCart)
+            List<Carts>? listCart = [.. dbContext.Carts.Where(cart => cart.UserID == request.UserID)];
+            foreach (Carts cart in listCart)
             {
-                GetCartResponse TmpCart = new()
+                GetCartResponse tempCart = new()
                 {
-                    Cart_ID = cart.Cart_ID,
-                    User_ID = cart.User_ID,
+                    CartID = cart.CartID,
+                    UserID = cart.UserID,
                     Quantity = cart.Quantity,
                     Total = cart.Total,
-                    Cart_List_Product = cart.Cart_List_Product
+                    CartListProduct = cart.CartListProduct
                 };
             }
             return Task.FromResult(response);
         }
 
-        public Task<CreateCartResponse> CreateCart(CreateCartRequest request)
+        public Task<CreateCartResponse> Create(CreateCartRequest request)
         {
             CreateCartResponse response = new();
             using (AppDbContext dbContext = new())
             {
-                Carts CreateCart = new()
+                Carts createCart = new()
                 {
-                    Cart_ID = request.Cart_ID,
-                    User_ID = request.User_ID,
+                    CartID = request.CartID,
+                    UserID = request.UserID,
                     Quantity = request.Quantity,
                     Total = request.Total,
-                    Cart_List_Product = request.Cart_List_Product
+                    CartListProduct = request.CartListProduct
                 };
-                _ = dbContext.Carts.Add(CreateCart);
+                _ = dbContext.Carts.Add(createCart);
                 _ = dbContext.SaveChanges();
 
-                Carts? GetCart = dbContext.Carts.Where(cart => cart.User_ID == request.User_ID).FirstOrDefault();
-                response.Cart_ID = GetCart.Cart_ID;
-                response.User_ID = GetCart.User_ID;
-                response.Quantity = GetCart.Quantity;
-                response.Cart_List_Product = GetCart.Cart_List_Product;
-                response.Total = GetCart.Total;
+                Carts? getCart = dbContext.Carts.Where(cart => cart.UserID == request.UserID).FirstOrDefault();
+                response.CartID = getCart.CartID;
+                response.UserID = getCart.UserID;
+                response.Quantity = getCart.Quantity;
+                response.CartListProduct = getCart.CartListProduct;
+                response.Total = getCart.Total;
             }
             return Task.FromResult(response);
         }
 
-        public Task<UpdateCartResponse> UpdateCart(UpdateCartRequest request)
+        public Task<UpdateCartResponse> Update(UpdateCartRequest request)
         {
             UpdateCartResponse response = new();
             using (AppDbContext dbContext = new())
             {
                 Carts carts = new()
                 {
-                    Cart_ID = request.Cart_ID,
-                    User_ID = request.User_ID,
+                    CartID = request.CartID,
+                    UserID = request.UserID,
                     Quantity = request.Quantity,
                     Total = request.Total,
-                    Cart_List_Product = request.Cart_List_Product
+                    CartListProduct = request.CartListProduct
                 };
-                Carts UpdateCart = carts;
-                _ = dbContext.Carts.Update(UpdateCart);
+                Carts updateCart = carts;
+                _ = dbContext.Carts.Update(updateCart);
                 _ = dbContext.SaveChanges();
 
-                Carts? GetCart = dbContext.Carts.Where(cart => cart.User_ID == request.User_ID).FirstOrDefault();
-                response.Cart_ID = GetCart.Cart_ID;
-                response.User_ID = GetCart.User_ID;
-                response.Quantity = GetCart.Quantity;
-                response.Cart_List_Product = GetCart.Cart_List_Product;
-                response.Total = GetCart.Total;
+                Carts? getCart = dbContext.Carts.Where(cart => cart.UserID == request.UserID).FirstOrDefault();
+                response.CartID = getCart.CartID;
+                response.UserID = getCart.UserID;
+                response.Quantity = getCart.Quantity;
+                response.CartListProduct = getCart.CartListProduct;
+                response.Total = getCart.Total;
             }
             return Task.FromResult(response);
         }
 
-        public Task<DeleteCartResponse> DeleteCart(DeleteCartRequest request)
+        public Task<DeleteCartResponse> Delete(DeleteCartRequest request)
         {
             using (AppDbContext dbContext = new())
             {
-                Carts? FindedCart = dbContext.Carts.Find(request.Cart_ID);
-                _ = dbContext.Carts.Remove(FindedCart);
+                Carts? findCart = dbContext.Carts.Find(request.CartID);
+                _ = dbContext.Carts.Remove(findCart);
                 _ = dbContext.SaveChanges();
             }
             DeleteCartResponse response = new()
             {
-                Cart_ID = Guid.Empty,
-                User_ID = Guid.Empty,
+                CartID = Guid.Empty,
+                UserID = Guid.Empty,
                 Quantity = 0,
                 Total = 0,
-                Cart_List_Product = { }
+                CartListProduct = { }
             };
             return Task.FromResult(response);
         }
